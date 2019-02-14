@@ -1,0 +1,1 @@
+npm install @babel/core @babel/preset-env @babel/preset-react babel-loader babel-minify-webpack-plugin clean-webpack-plugin duplicate-package-checker-webpack-plugin html-loader html-webpack-plugin uglifyjs-webpack-plugin webpack webpack-cli webpack-dev-server axios react react-bootstrap react-dom react-router-dom script-ext-html-webpack-plugin --save-dev
