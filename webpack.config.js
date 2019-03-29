@@ -47,6 +47,7 @@ module.exports = {
 		}
 	},
 	plugins: [
+		new webpack.optimize.ModuleConcatenationPlugin(),
 		new CleanWebpackPlugin([buildPath]),
 		new HtmlWebPackPlugin({
 			template: path.resolve(__dirname, './src/index.html'),
