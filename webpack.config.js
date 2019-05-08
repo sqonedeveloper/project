@@ -78,5 +78,10 @@ module.exports = {
 		compress: true,
 		port: 8080
 	},
-	devtool: 'cheap-source-map'
+	devtool: 'cheap-source-map',
+	watch: true,
+	watchOptions: {
+		aggregateTimeout: 300,
+		poll: 1000
+	}
 }
