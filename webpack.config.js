@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'assets/cetak/bundle');
@@ -48,7 +47,6 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.optimize.ModuleConcatenationPlugin(),
-		new CleanWebpackPlugin([buildPath]),
 		new HtmlWebPackPlugin({
 			template: path.resolve(__dirname, './src/index.html'),
 			excludeChunks: ['base'],
