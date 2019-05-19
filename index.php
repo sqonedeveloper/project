@@ -313,3 +313,9 @@ switch (ENVIRONMENT)
  * And away we go...
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+
+header('cache-control: public, must-revalidate, max-age=3600');
+header('x-content-type-options: nosniff');
+header('x-frame-options: SAMEORIGIN');
+header('x-xss-protection: 1; mode=block');
+header_remove("X-Powered-By");
