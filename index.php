@@ -319,6 +319,5 @@ header("Strict-Transport-Security: max-age=31536000");
 header('x-content-type-options: nosniff');
 header('x-frame-options: SAMEORIGIN');
 header('x-xss-protection: 1; mode=block');
-header("Content-Security-Policy: default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';");
 header("Referrer-Policy: origin-when-cross-origin");
 header_remove("X-Powered-By");
