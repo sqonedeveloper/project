@@ -3,16 +3,11 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
-const buildPath = path.resolve(__dirname, 'assets/js/public/bundle');
+const buildPath = path.resolve(__dirname, 'assets/js/admin/bundle');
 const entry_public = {
-   header: './src/PublicPanel/Header.js',
-   home: './src/PublicPanel/Home.js',
-   login: './src/PublicPanel/Login.js',
-   profile: './src/PublicPanel/Profile.js',
-   forms: './src/PublicPanel/Forms.js',
-   view: './src/PublicPanel/View.js',
-   finish: './src/PublicPanel/Finish.js'
+   header: './src/AdminPanel/Header.js'
 }
 
 module.exports = {
@@ -37,33 +32,31 @@ module.exports = {
          }
       }, {
          test: /\.(gif|png|jpe?g|svg)$/i,
-           use: [
-             'file-loader',
-             {
+         use: [
+            'file-loader',
+            {
                loader: 'image-webpack-loader',
                options: {
-        mozjpeg: {
-          progressive: true,
-          quality: 65
-        },
-        // optipng.enabled: false will disable optipng
-        optipng: {
-          enabled: false,
-        },
-        pngquant: {
-          quality: '65-90',
-          speed: 4
-        },
-        gifsicle: {
-          interlaced: false,
-        },
-        // the webp option will enable WEBP
-        webp: {
-          quality: 75
-        }
-      }
-             },
-           ]
+                  mozjpeg: {
+                     progressive: true,
+                     quality: 65
+                  },
+                  optipng: {
+                     enabled: true,
+                  },
+                  pngquant: {
+                     quality: '65-90',
+                     speed: 4
+                  },
+                  gifsicle: {
+                     interlaced: false,
+                  },
+                  webp: {
+                     quality: 75
+                  }
+               }
+            }
+         ]
       }]
    },
    optimization: {
@@ -84,6 +77,7 @@ module.exports = {
       }
    },
    plugins: [
+      new WebpackBar(),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new HtmlWebPackPlugin({
          template: path.resolve(__dirname, './src/index.html'),
